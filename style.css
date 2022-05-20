@@ -3,10 +3,38 @@ body{
     margin: 0;
 }
 
-.container{
+.container, .score{
     display: flex;
     flex-direction: column;
 }
+
+
+
+.score h2{
+    font-size: 36px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.score-details{
+    display: flex;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.separator{
+    flex: 2;
+    text-align: center;
+}
+
+.player, .cpu{
+    flex: 1;
+}
+
+.player{
+    text-align: end;
+}
+
 
 .content{
     display: flex;
