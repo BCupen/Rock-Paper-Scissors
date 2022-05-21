@@ -35,6 +35,12 @@ body{
     text-align: end;
 }
 
+#message-box{
+    text-align: center;
+    font-size: 32px;
+    color:crimson;
+    font-weight: 700;
+}
 
 .content{
     display: flex;
@@ -52,6 +58,11 @@ body{
     background-color: slategray;
     font-size: 28px;
     font-weight: 800;    
+}
+
+.element:hover{
+    background-color: violet;
+    transform: scale(1.1);
 }
 
 .header{
