@@ -2,9 +2,36 @@ let choices = ['rock', 'paper', 'scissors']
 let playerScore = 0
 let computerScore = 0
 
+//get all options 
+const choiceDivs = document.querySelectorAll('.element');
+const message = document.querySelector('#message-box');
+const playerDiv = document.querySelector('.player');
+const cpuDiv = document.querySelector('.cpu');
+
+//add event listener
+choiceDivs.forEach(choice => choice.addEventListener('click', function(e){
+    if(playerScore >= 5 || computerScore >= 5){
+        return;
+    }
+        
+    const p = e.currentTarget.querySelector('p');
+    const result = playRound(p.textContent, computerPlay());
+    message.textContent = result; //display message
+    //update scores
+    playerDiv.textContent = playerScore;
+    cpuDiv.textContent = computerScore;
+    if(playerScore >= 5){
+        message.textContent = 'PLAYER WINS';
+    }else if(computerScore >= 5){
+        message.textContent = 'COMPUTER WINS';
+    }
+}));
+
+
+
 function computerPlay(){
     const index = Math.floor(Math.random()*3);
-    return choices[index]
+    return choices[index];
 }
 
 function playRound(playerChoice, computerChoice){
@@ -42,16 +69,3 @@ function playRound(playerChoice, computerChoice){
         }
     }   
 }
-
-function game(){
-    for(let i=0; i<5; i++){
-        let playerChoice = prompt("Rock, Paper, Scissors?");
-        let result = playRound(playerChoice, computerPlay());
-        console.log(result)
-    }
-    console.log(`Player Score: ${playerScore}`)
-    console.log(`Computer Score: ${computerScore}`)
-}
-
-game()
-
